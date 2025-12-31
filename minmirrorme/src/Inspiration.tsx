@@ -211,17 +211,17 @@ function Inspiration() {
 
   return (
     <div className="inspiration-container">
-      <h2>Your Inspirations</h2>
-      <p>Add books or movies that influence you. The AI will extract their core principles.</p>
+      <h2>Gather Wisdom</h2>
+      <p>What moves you? Share a book or movie, and we will distill its essence into your Core.</p>
       
       <div className="form-group">
         <label>Add an Inspiring Book or Movie</label>
         <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="e.g., The Alchemist by Paulo Coelho" />
       </div>
-      <button onClick={handleAddInspiration} disabled={isLoading}>{isLoading ? 'Analyzing...' : 'Get Insights'}</button>
+      <button onClick={handleAddInspiration} disabled={isLoading}>{isLoading ? 'Analyzing...' : 'Extract Wisdom'}</button>
 
       <div className="entries-list">
-        <h3>Saved Inspirations</h3>
+        <h3>Saved Wisdom</h3>
         <div className="filter-controls">
           <div className="autocomplete-container" ref={autocompleteRef}>
             <input 
@@ -251,7 +251,7 @@ function Inspiration() {
                 <div className="actions-container">
                   <button onClick={() => toggleActionsDropdown(item.SK)} className="actions-button">•••</button>
                   <div id={`actions-dropdown-${item.SK}`} className="actions-dropdown hidden">
-                    <div onClick={() => handleFineTune(item)}>Fine-Tune Principles</div>
+                    <div onClick={() => handleFineTune(item)}>Fine-Tune Core Wisdom</div>
                     <div onClick={() => handleDeleteInspiration(item.SK)} className="delete-action">Delete</div>
                   </div>
                 </div>

@@ -67,11 +67,11 @@ function Blueprint({ activeTab, onStartUpdate }: BlueprintProps) {
     <div className="blueprint-container">
       <div className="component-header">
         <div>
-          <h2>Your Blueprint</h2>
-          <p>This is a mind map of your current blueprint. To make changes, please use the AI Coach.</p>
+          <h2>Your Core Identity</h2>
+          <p>A visual map of your values, goals, and current focus.</p>
         </div>
         <button onClick={onStartUpdate} className="action-button">
-          Update with AI Coach
+          Refine via Chat
         </button>
       </div>
       

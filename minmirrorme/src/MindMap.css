@@ -1,93 +1,128 @@
-/* --- ENHANCED: Blueprint Mind Map Layout --- */
+/* --- ENHANCED: "Inner World" Mind Map Theme --- */
+
+/* 1. The Container: More breathing room */
 .mind-map-container {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr; /* Give the center column more space */
+  grid-template-columns: 1fr 1.3fr 1fr; /* Center is slightly wider */
   grid-template-rows: auto auto auto;
-  gap: 3.5rem 2.5rem; /* Increased gap for clarity */
+  gap: 4rem 3rem; /* Wider gaps for a "floaty" feel */
   align-items: center;
   justify-items: center;
-  padding: 3rem 1rem;
+  padding: 4rem 2rem;
   position: relative;
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-sans); /* Ensure you use a clean sans-serif */
   grid-template-areas:
     ".     problem   ."
     "skills  focus     knowledge"
     ".     goal      .";
 }
 
+/* 2. The Cards: Soft, Organic, "Pill" shapes */
 .map-item {
-  background-color: var(--card-background);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+  background-color: #ffffff;
+  border: 1px solid transparent; /* Removed hard borders */
+  border-radius: 24px; /* High radius for soft look */
+  padding: 2rem 1.5rem;
+  /* Soft, diffused shadow to make them float */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
   text-align: center;
   width: 100%;
-  max-width: 300px;
-  min-height: 160px;
+  max-width: 320px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .map-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
 }
 
+/* 3. Typography: Conversational, not shouting */
 .map-item label {
   font-weight: 600;
-  color: var(--subtle-text);
+  color: #94a3b8; /* Slate-400 (Soft Gray) */
   margin-bottom: 0.75rem;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  text-transform: none; /* REMOVED UPPERCASE */
+  letter-spacing: 0.02em;
 }
 
 .map-item p {
   margin: 0;
-  font-size: 1rem;
-  color: var(--text-color);
-  line-height: 1.5;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #334155; /* Slate-700 */
+  line-height: 1.6;
 }
 
-/* Assigning grid areas */
-.map-problem { grid-area: problem; background-color: #fff7ed; border-color: #fed7aa; } /* Orange-100 */
-.map-skills { grid-area: skills; }
-.map-knowledge { grid-area: knowledge; }
-.map-focus { grid-area: focus; background-color: #fefce8; border-color: #fde047; } /* Yellow-100 / Yellow-300 */
-.map-goal { grid-area: goal; background-color: #ecfdf5; border-color: #6ee7b7; } /* Green-50 / Green-300 */
+/* 4. Color Palette: Nature & Serenity */
 
-/* --- Enhanced Connecting Arrows --- */
+/* Top: Problem -> "Curiosity" (Warm Blush) */
+.map-problem { 
+  grid-area: problem; 
+  background-color: #fff1f2; /* Rose-50 */
+  color: #be123c;
+}
+.map-problem label { color: #fda4af; } /* Rose-300 */
+
+/* Sides: Skills/Knowledge -> "Airy" (Cloud White) */
+.map-skills { grid-area: skills; background-color: #ffffff; border: 1px solid #f1f5f9; }
+.map-knowledge { grid-area: knowledge; background-color: #ffffff; border: 1px solid #f1f5f9; }
+
+/* Center: Focus -> "Growth" (Sage/Teal) */
+.map-focus { 
+  grid-area: focus; 
+  background-color: #f0fdfa; /* Teal-50 */
+  border: 1px solid #ccfbf1;
+}
+.map-focus label { color: #5eead4; } /* Teal-300 */
+
+/* Bottom: Goal -> "Clarity" (Soft Lavender) */
+.map-goal { 
+  grid-area: goal; 
+  background-color: #f5f3ff; /* Violet-50 */
+  border: 1px solid #ddd6fe;
+}
+.map-goal label { color: #a78bfa; } /* Violet-400 */
+
+
+/* --- 5. Connectors: Dashed "Thoughts" instead of Pipes --- */
+
+/* Reset Styles */
 .map-problem::after, .map-focus::after, .map-skills::after, .map-knowledge::before {
   content: '';
   position: absolute;
-  background-color: #d1d5db; /* gray-300 */
+  background-color: transparent; /* Changed from solid color */
   z-index: -1;
+  opacity: 0.6;
 }
 
-/* Vertical Arrows */
+/* Vertical Dashed Lines */
 .map-problem::after, .map-focus::after {
-  width: 3px;
-  height: 3.5rem;
-  bottom: -3.5rem;
+  width: 0px; /* Width 0, border does the work */
+  border-left: 2px dashed #cbd5e1; /* Slate-300 Dashed */
+  height: 4rem;
+  bottom: -4rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* Horizontal Arrows */
+/* Horizontal Dashed Lines */
 .map-skills::after, .map-knowledge::before {
-  height: 3px;
-  width: 2.5rem;
+  height: 0px;
+  width: 3rem;
+  border-top: 2px dashed #cbd5e1; /* Slate-300 Dashed */
   top: 50%;
   transform: translateY(-50%);
 }
-.map-skills::after { right: -2.5rem; }
-.map-knowledge::before { left: -2.5rem; }
+.map-skills::after { right: -3rem; }
+.map-knowledge::before { left: -3rem; }
 
-/* Arrowheads */
+/* Arrowheads: Softer and Lighter */
 .map-problem::before, .map-focus::before, .map-skills::before, .map-knowledge::after {
   content: '';
   position: absolute;
@@ -95,37 +130,37 @@
   height: 0;
   border-style: solid;
   border-color: transparent;
+  opacity: 0.6;
 }
 
 /* Down Arrowheads */
 .map-problem::before, .map-focus::before {
-  bottom: -3.5rem;
+  bottom: -4rem;
   left: 50%;
   transform: translateX(-50%);
-  border-width: 10px 7px 0 7px;
-  border-top-color: #d1d5db;
+  border-width: 8px 6px 0 6px; /* Slightly smaller/sharper */
+  border-top-color: #cbd5e1;
 }
 
 /* Right Arrowhead */
 .map-skills::before {
   top: 50%;
-  right: -2.5rem;
+  right: -3rem;
   transform: translateY(-50%);
-  border-width: 7px 0 7px 10px;
-  border-left-color: #d1d5db;
+  border-width: 6px 0 6px 8px;
+  border-left-color: #cbd5e1;
 }
 
 /* Left Arrowhead */
 .map-knowledge::after {
   top: 50%;
-  left: -2.5rem;
+  left: -3rem;
   transform: translateY(-50%);
-  border-width: 7px 10px 7px 0;
-  border-right-color: #d1d5db;
+  border-width: 6px 8px 6px 0;
+  border-right-color: #cbd5e1;
 }
 
-
-/* Responsive adjustments */
+/* Responsive: Stack vertically on mobile */
 @media (max-width: 900px) {
   .mind-map-container {
     grid-template-columns: 1fr;
@@ -136,27 +171,31 @@
       "knowledge"
       "focus"
       "goal";
-    gap: 5rem; /* Increased gap for vertical flow */
+    gap: 4rem;
   }
   
-  /* Re-orient all arrows to point down */
+  /* Re-orient horizontal arrows to point down */
   .map-skills::after, .map-knowledge::before {
-    width: 3px;
-    height: 3.5rem;
+    width: 0px;
+    height: 4rem;
+    border-top: none;
+    border-left: 2px dashed #cbd5e1;
     top: auto;
     left: 50%;
     right: auto;
-    bottom: -3.5rem;
+    bottom: -4rem;
     transform: translateX(-50%);
   }
+  
+  /* Fix Arrowheads for mobile */
   .map-skills::before, .map-knowledge::after {
     top: auto;
     left: 50%;
     right: auto;
-    bottom: -3.5rem;
+    bottom: -4rem;
     transform: translateX(-50%);
-    border-width: 10px 7px 0 7px;
-    border-top-color: #d1d5db;
+    border-width: 8px 6px 0 6px;
+    border-top-color: #cbd5e1;
     border-left-color: transparent;
     border-right-color: transparent;
   }

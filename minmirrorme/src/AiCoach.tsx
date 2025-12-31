@@ -96,8 +96,8 @@ const AiCoach: React.FC<AiCoachProps> = ({ messages, setMessages, starterPrompt,
 
   return (
     <div className="ai-coach-container">
-      <h2>AI Coach</h2>
-      <p>Start a conversation with your AI coach to define your blueprint, add inspirations, or record journal entries.</p>
+      <h2>Your Safe Space</h2>
+      <p>I am here to listen, organize your thoughts, or help you plan. No judgment, just support.</p>
       
       {error && <p className="status-message error">{error}</p>}
 
@@ -122,7 +122,7 @@ const AiCoach: React.FC<AiCoachProps> = ({ messages, setMessages, starterPrompt,
           value={currentMessage}
           onChange={(e) => setCurrentMessage(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
-          placeholder="Type your message here..."
+          placeholder="Type whatever is on your mind..."
           disabled={isLoading}
         />
         <button onClick={handleSendMessage} disabled={isLoading}>

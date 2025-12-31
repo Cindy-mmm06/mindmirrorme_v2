@@ -294,12 +294,14 @@ button:disabled {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   font-size: 0.9rem;
+  color: var(--primary-color-dark);
 }
 .actions-dropdown div:hover {
   background-color: #f1f5f9; /* slate-100 */
+  color: var(--primary-color);
 }
 .delete-action {
-  color: #ef4444; /* red-500 */
+  color: #ef4444 !important; /* red-500 - override the blue */
 }
 .edit-button-inline {
   background: none;
@@ -576,17 +578,21 @@ button:disabled {
 }
 
 .actions-button-bubble {
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
   font-size: 1.2rem;
   line-height: 1;
   cursor: pointer;
-  padding: 0 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 .actions-button-bubble:hover {
-  color: white;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
 }
+
 
 .journal-bubble .read-more-button {
   color: white;

@@ -129,7 +129,8 @@ function Journal() {
 
   return (
     <div className="journal-container">
-      <h2>What's on your mind?</h2>
+      <h2>Quiet Reflection</h2>
+      <p>Unload your mental clutter. Writing it down helps clear the noise.</p>
       <textarea
         value={journalContent}
         onChange={(e) => setJournalContent(e.target.value)}
@@ -138,7 +139,7 @@ function Journal() {
         disabled={isLoading}
       />
       <button onClick={handleSaveJournal} disabled={isLoading}>
-        {isLoading ? 'Saving...' : 'Save Thought'}
+        {isLoading ? 'Saving...' : 'Keep this Memory'}
       </button>
       {statusMessage && <p className={`status-message ${statusMessage.startsWith('Error') ? 'error' : 'success'}`}>{statusMessage}</p>}
 
@@ -185,7 +186,7 @@ function Journal() {
                     <div className="journal-bubble-footer">
                       <span>{new Date(entry.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                       <div className="actions-container">
-                        <button onClick={() => toggleActionsDropdown(entry.SK)} className="actions-button-bubble">•••</button>
+                        <button onClick={() => toggleActionsDropdown(entry.SK)} className="actions-button-bubble">✏️</button>
                         <div id={`journal-actions-${entry.SK}`} className="actions-dropdown hidden">
                           <div onClick={() => startEditing(entry)}>Edit</div>
                           <div onClick={() => handleDeleteEntry(entry.SK)} className="delete-action">Delete</div>

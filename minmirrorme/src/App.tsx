@@ -33,23 +33,23 @@ function App() {
           <div className="main-layout">
             <nav className="sidebar-nav">
               <div className="sidebar-header">
-                <h1>Blueprint</h1>
-                <p>Welcome, {user?.username}!</p>
+                <h1>The Mind Mirror</h1>
+                <p>Welcome to your own space</p>
               </div>
               <button className={`sidebar-button ${activeTab === 'aiCoach' ? 'active' : ''}`} onClick={() => setActiveTab('aiCoach')}>
-                AI Coach
-              </button>
-              <button className={`sidebar-button ${activeTab === 'aiInsight' ? 'active' : ''}`} onClick={() => setActiveTab('aiInsight')}>
-                AI Insight
+                💬 Chat
               </button>
               <button className={`sidebar-button ${activeTab === 'journal' ? 'active' : ''}`} onClick={() => setActiveTab('journal')}>
-                Journal
-              </button>
-              <button className={`sidebar-button ${activeTab === 'blueprint' ? 'active' : ''}`} onClick={() => setActiveTab('blueprint')}>
-                Blueprint
+                📖 Thoughts
               </button>
               <button className={`sidebar-button ${activeTab === 'inspiration' ? 'active' : ''}`} onClick={() => setActiveTab('inspiration')}>
-                Inspirations
+                ✨ Wisdom
+              </button>
+              <button className={`sidebar-button ${activeTab === 'aiInsight' ? 'active' : ''}`} onClick={() => setActiveTab('aiInsight')}>
+                🧩 Patterns
+              </button>
+              <button className={`sidebar-button ${activeTab === 'blueprint' ? 'active' : ''}`} onClick={() => setActiveTab('blueprint')}>
+                🎯 Core
               </button>
               <button onClick={signOut} className="signout-button-sidebar">
                 Sign Out

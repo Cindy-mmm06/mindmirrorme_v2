@@ -49,11 +49,11 @@ function AiInsight() {
 
   return (
     <div className="ai-insight-container">
-      <h2>AI Insight</h2>
-      <p>When you're ready, click the button below to get a deep, holistic analysis of your entire profile, including your Blueprint, Inspirations, and Journals.</p>
+      <h2>Uncover Your Patterns</h2>
+      <p>Connect the dots between your Chat, Thoughts, and Core. See the bigger picture of who you are becoming.</p>
       
       <button onClick={handleGetInsight} disabled={isLoading}>
-        {isLoading ? 'Generating Insight...' : 'Get My AI Insight'}
+        {isLoading ? 'Generating Insight...' : 'Reveal Patterns'}
       </button>
 
       {error && <p className="status-message error">{error}</p>}
