@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="app-container">
       <Authenticator>
-        {({ signOut, user }) => (
+        {({ signOut }) => (
           <div className="main-layout">
             <nav className="sidebar-nav">
               <div className="sidebar-header">
