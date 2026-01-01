@@ -82,10 +82,8 @@ const AiCoach: React.FC<AiCoachProps> = ({ messages, setMessages, starterPrompt,
     if (starterPrompt) {
       processMessage(starterPrompt);
       setStarterPrompt(null); // Clear the prompt so it doesn't run again
-    } else if (messages.length === 0) {
-      // If there's no starter prompt and the chat is empty, get the default greeting.
-      processMessage(''); 
     }
+    // Removed automatic empty message call
   }, [starterPrompt]);
 
   const handleSendMessage = () => {
