@@ -7,6 +7,7 @@ import AiCoach from './AiCoach';
 import Inspiration from './Inspiration';
 import AiInsight from './AiInsight';
 import './App.css';
+import './mobile.css';
 
 type Message = {
   role: 'user' | 'assistant';
