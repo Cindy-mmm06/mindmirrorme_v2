@@ -1,0 +1,83 @@
+/* --- Mobile Responsive Styles --- */
+@media (max-width: 768px) {
+  /* Layout */
+  .main-layout {
+    flex-direction: column;
+  }
+  
+  /* Sidebar */
+  .sidebar-nav {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--card-border);
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0.5rem;
+  }
+  .sidebar-header { 
+    display: none; 
+  }
+  .sidebar-button {
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+  }
+  .signout-button-sidebar { 
+    display: none; 
+  }
+  
+  /* Content */
+  .content-area {
+    padding: 1rem;
+  }
+  
+  /* Grids */
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+  .blueprint-map {
+    grid-template-areas:
+      "goal"
+      "skills"
+      "knowledge"
+      "problems"
+      "focus";
+    grid-template-columns: 1fr;
+  }
+  
+  /* Chat */
+  .chat-window {
+    height: calc(100vh - 180px);
+  }
+  .chat-bubble {
+    max-width: 95%;
+    font-size: 0.9rem;
+  }
+  .chat-input-area {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Journal */
+  .journal-bubble {
+    max-width: 95%;
+  }
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  /* Forms - Prevent iOS zoom */
+  textarea, input[type="text"], input[type="date"] {
+    font-size: 16px !important;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
