@@ -618,6 +618,8 @@ button:disabled {
   cursor: pointer;
   transition: background-color 0.2s ease;
   margin-bottom: 0.75rem;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .profile-action-button:not(.delete-style) {

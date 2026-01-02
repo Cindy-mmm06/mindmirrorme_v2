@@ -6,39 +6,38 @@
     height: 100vh;
   }
   
-  /* Sidebar - Vertical layout for mobile */
+  /* Sidebar - Horizontal layout for mobile */
   .sidebar-nav {
     width: 100%;
     height: auto;
-    max-height: 40vh;
     border-right: none;
     border-bottom: 1px solid var(--card-border);
-    flex-direction: column;
-    padding: 1rem;
-    overflow-y: auto;
+    flex-direction: row;
+    padding: 0.5rem;
+    overflow-x: auto;
   }
   
   .sidebar-header {
-    margin-bottom: 1rem;
-  }
-  
-  .sidebar-header h1 {
-    font-size: 1.25rem;
+    display: none;
   }
   
   .sidebar-button {
-    width: 100%;
-    margin-bottom: 0.5rem;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
   }
   
   .sidebar-bottom {
-    margin-top: auto;
+    margin-top: 0;
+    margin-left: auto;
   }
   
   .profile-button {
-    width: 100%;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
     margin-bottom: 0;
   }
   
@@ -46,7 +45,6 @@
   .content-area {
     padding: 1rem;
     flex: 1;
-    height: calc(60vh);
     overflow-y: auto;
   }
   
@@ -58,12 +56,13 @@
   
   /* Chat adjustments */
   .chat-window {
-    height: calc(60vh - 100px);
+    height: calc(100vh - 200px);
   }
   
   .chat-input-area {
-    flex-direction: column;
-    gap: 0.5rem;
+    order: -1;
+    margin-bottom: 1rem;
+    margin-top: 0;
   }
   
   /* Other responsive adjustments */

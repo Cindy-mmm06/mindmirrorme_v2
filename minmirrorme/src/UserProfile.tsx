@@ -82,7 +82,13 @@ function UserProfile({ isOpen, onClose, onSignOut }: UserProfileProps) {
         <div className="profile-actions">
           <button 
             className="profile-action-button"
-            onClick={() => onSignOut && onSignOut()}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (onSignOut) {
+                onSignOut();
+              }
+            }}
           >
             Sign Out
           </button>

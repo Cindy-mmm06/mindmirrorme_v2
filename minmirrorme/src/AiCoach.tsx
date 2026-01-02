@@ -99,6 +99,20 @@ const AiCoach: React.FC<AiCoachProps> = ({ messages, setMessages, starterPrompt,
       
       {error && <p className="status-message error">{error}</p>}
 
+      <div className="chat-input-area">
+        <input
+          type="text"
+          value={currentMessage}
+          onChange={(e) => setCurrentMessage(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
+          placeholder="Type whatever is on your mind..."
+          disabled={isLoading}
+        />
+        <button onClick={handleSendMessage} disabled={isLoading}>
+          Send
+        </button>
+      </div>
+
       <div id="chat-container" className="chat-window">
         {messages.map((msg, index) => (
           msg.content && (
@@ -112,20 +126,6 @@ const AiCoach: React.FC<AiCoachProps> = ({ messages, setMessages, starterPrompt,
             <div className="typing-indicator"></div>
           </div>
         )}
-      </div>
-
-      <div className="chat-input-area">
-        <input
-          type="text"
-          value={currentMessage}
-          onChange={(e) => setCurrentMessage(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
-          placeholder="Type whatever is on your mind..."
-          disabled={isLoading}
-        />
-        <button onClick={handleSendMessage} disabled={isLoading}>
-          Send
-        </button>
       </div>
     </div>
   );
