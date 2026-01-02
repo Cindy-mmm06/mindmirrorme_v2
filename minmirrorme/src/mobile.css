@@ -2,48 +2,53 @@
 @media (max-width: 768px) {
   /* Layout */
   .main-layout {
-    flex-direction: column;
+    flex-direction: column !important;
     height: 100vh;
   }
   
   /* Sidebar - Horizontal layout for mobile */
   .sidebar-nav {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--card-border);
-    flex-direction: row;
-    padding: 0.5rem;
-    overflow-x: auto;
+    width: 100% !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--card-border) !important;
+    flex-direction: row !important;
+    padding: 0.5rem !important;
+    overflow-x: auto !important;
   }
   
   .sidebar-header {
-    display: none;
+    display: none !important;
   }
   
   .sidebar-button {
-    white-space: nowrap;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0;
+    white-space: nowrap !important;
+    font-size: 0.9rem !important;
+    padding: 0.5rem 1rem !important;
+    margin-right: 0.5rem !important;
+    margin-bottom: 0 !important;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   
   .sidebar-bottom {
-    margin-top: 0;
-    margin-left: auto;
+    margin-top: 0 !important;
+    margin-left: auto !important;
+    flex-direction: row !important;
   }
   
   .profile-button {
-    white-space: nowrap;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0;
+    white-space: nowrap !important;
+    font-size: 0.9rem !important;
+    padding: 0.5rem 1rem !important;
+    margin-bottom: 0 !important;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   
   /* Content area takes remaining space */
   .content-area {
-    padding: 1rem;
+    padding: 1rem !important;
     flex: 1;
     overflow-y: auto;
   }
@@ -54,13 +59,18 @@
     height: 100vh;
   }
   
+  .profile-action-button {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+    user-select: none !important;
+  }
+  
   /* Chat adjustments */
   .chat-window {
     height: calc(100vh - 200px);
   }
   
   .chat-input-area {
-    order: -1;
     margin-bottom: 1rem;
     margin-top: 0;
   }
@@ -104,5 +114,7 @@
   button {
     padding: 0.75rem;
     font-size: 1rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 }
