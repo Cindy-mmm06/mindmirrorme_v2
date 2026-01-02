@@ -44,7 +44,7 @@ function UserProfile({ isOpen, onClose, onSignOut }: UserProfileProps) {
       await del({
         apiName: 'Blueprint-API',
         path: '/user/delete'
-      });
+      }).response;
       if (onSignOut) onSignOut();
     } catch (error) {
       console.error('Failed to delete account:', error);
@@ -54,6 +54,7 @@ function UserProfile({ isOpen, onClose, onSignOut }: UserProfileProps) {
       setShowDeleteConfirm(false);
     }
   };
+
 
   if (!isOpen) return null;
 

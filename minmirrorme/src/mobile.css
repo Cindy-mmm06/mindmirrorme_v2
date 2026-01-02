@@ -1,62 +1,81 @@
-/* --- Mobile Responsive Styles --- */
+/* src/mobile.css */
+
 @media (max-width: 768px) {
-  /* Layout */
+  /* 1. FORCE ROW LAYOUT (Like Web) */
   .main-layout {
-    flex-direction: column;
+    flex-direction: row !important; /* Override the column layout */
+    height: 100vh; /* Lock height to screen */
+    overflow: hidden; /* Prevent scrolling the whole body */
   }
   
-  /* Sidebar - Keep vertical layout like desktop */
+  /* 2. COMPACT SIDEBAR */
   .sidebar-nav {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--card-border);
-    flex-direction: column;
-    padding: 1rem;
-    max-height: 50vh;
-    overflow-y: auto;
-  }
-  
-  .sidebar-header {
-    margin-bottom: 1rem;
-  }
-  
-  .sidebar-header h1 {
-    font-size: 1.5rem;
-  }
-  
-  .sidebar-button {
-    width: 100%;
-    margin-bottom: 0.5rem;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-  }
-  
-  .sidebar-bottom {
-    margin-top: 1rem;
-  }
-  
-  .profile-button {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Profile sidebar mobile adjustments */
-  .profile-sidebar {
-    width: 100vw;
+    width: 60px; /* Very narrow sidebar */
+    min-width: 60px;
+    padding: 1rem 0.25rem; /* Less padding */
     height: 100vh;
+    border-right: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center icons */
   }
   
-  /* Content */
+  /* Hide the big Title and Description */
+  .sidebar-header {
+    display: none; 
+  }
+  
+  /* 3. COMPACT BUTTONS */
+  .sidebar-button {
+    font-size: 0.8rem; /* Smaller text */
+    padding: 0.5rem 0.2rem;
+    text-align: center; /* Center the icon/text */
+    display: flex;
+    flex-direction: column; /* Icon on top of text (if you want) or just cut text */
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Optional: If you only want to show the EMOJI icons on mobile, un-comment this: */
+  /* .sidebar-button {
+    text-indent: -9999px;
+    line-height: 0;
+  }
+  .sidebar-button::first-letter {
+    text-indent: 0;
+    line-height: initial;
+    font-size: 1.5rem;
+  } 
+  */
+
+  .sidebar-bottom {
+    width: 100%;
+    padding: 0 0.25rem;
+  }
+  .profile-button {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  /* 4. CONTENT AREA FIXES */
   .content-area {
-    padding: 1rem;
-    flex: 1;
+    flex-grow: 1;
+    padding: 1rem; /* Smaller padding */
+    overflow-y: auto; /* Allow content to scroll independently */
+    width: calc(100% - 60px); /* Fill remaining space */
   }
-  
-  /* Grids */
-  .dashboard-container {
-    grid-template-columns: 1fr;
+
+  /* Fix Grid Systems for Mobile */
+  .dashboard-container,
+  .blueprint-map, 
+  .insight-dashboard {
+    grid-template-columns: 1fr !important; /* Force 1 column for cards */
   }
+
+  /* Fix Blueprint Map Areas */
   .blueprint-map {
     grid-template-areas:
       "goal"
@@ -64,40 +83,21 @@
       "knowledge"
       "problems"
       "focus";
-    grid-template-columns: 1fr;
+  }
+
+  /* Fix Chat Window Height */
+  .chat-window {
+    height: calc(100vh - 180px); /* Adjust for mobile header/keyboard */
   }
   
-  /* Chat */
-  .chat-window {
-    height: calc(100vh - 300px);
-  }
-  .chat-bubble {
-    max-width: 95%;
+  /* Prevent horizontal overflow on bubbles */
+  .chat-bubble, .journal-bubble {
+    max-width: 85%;
     font-size: 0.9rem;
   }
-  .chat-input-area {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  /* Journal */
-  .journal-bubble {
-    max-width: 95%;
-  }
-  .filter-controls {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-  
-  /* Forms - Prevent iOS zoom */
-  textarea, input[type="text"], input[type="date"] {
-    font-size: 16px !important;
-  }
-  
-  /* Buttons */
-  button {
-    padding: 0.75rem;
-    font-size: 1rem;
+
+  /* Adjust Profile Sidebar to cover screen */
+  .profile-sidebar {
+    width: 85vw; /* Not full width so they can click off, or 100vw */
   }
 }
