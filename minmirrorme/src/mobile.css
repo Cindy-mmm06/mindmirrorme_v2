@@ -3,17 +3,18 @@
   /* Layout */
   .main-layout {
     flex-direction: column;
+    height: 100vh;
   }
   
   /* Sidebar - Vertical layout for mobile */
   .sidebar-nav {
     width: 100%;
     height: auto;
+    max-height: 40vh;
     border-right: none;
     border-bottom: 1px solid var(--card-border);
     flex-direction: column;
     padding: 1rem;
-    max-height: 50vh;
     overflow-y: auto;
   }
   
@@ -22,7 +23,7 @@
   }
   
   .sidebar-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   
   .sidebar-button {
@@ -41,22 +42,35 @@
     margin-bottom: 0;
   }
   
+  /* Content area takes remaining space */
+  .content-area {
+    padding: 1rem;
+    flex: 1;
+    height: calc(60vh);
+    overflow-y: auto;
+  }
+  
   /* Profile sidebar mobile adjustments */
   .profile-sidebar {
     width: 100vw;
     height: 100vh;
   }
   
-  /* Content */
-  .content-area {
-    padding: 1rem;
-    flex: 1;
+  /* Chat adjustments */
+  .chat-window {
+    height: calc(60vh - 100px);
   }
   
-  /* Grids */
+  .chat-input-area {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Other responsive adjustments */
   .dashboard-container {
     grid-template-columns: 1fr;
   }
+  
   .blueprint-map {
     grid-template-areas:
       "goal"
@@ -67,27 +81,19 @@
     grid-template-columns: 1fr;
   }
   
-  /* Chat */
-  .chat-window {
-    height: calc(100vh - 300px);
-  }
-  .chat-bubble {
-    max-width: 95%;
-    font-size: 0.9rem;
-  }
-  .chat-input-area {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  /* Journal */
-  .journal-bubble {
-    max-width: 95%;
-  }
   .filter-controls {
     flex-direction: column;
     align-items: stretch;
     gap: 0.5rem;
+  }
+  
+  .journal-bubble {
+    max-width: 95%;
+  }
+  
+  .chat-bubble {
+    max-width: 95%;
+    font-size: 0.9rem;
   }
   
   /* Forms - Prevent iOS zoom */

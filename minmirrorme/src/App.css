@@ -101,7 +101,6 @@ body {
   background-color: #dc2626; /* red-600 */
 }
 
-
 /* --- Main Content Area --- */
 .content-area {
   flex-grow: 1;
@@ -267,7 +266,7 @@ button:disabled {
   margin-bottom: 0.5rem;
 }
 
-/* --- NEW: Actions Dropdown & Edit Button Styles --- */
+/* --- Actions Dropdown & Edit Button Styles --- */
 .actions-container {
   position: relative;
 }
@@ -334,37 +333,10 @@ button:disabled {
   font-size: 0.9rem;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-  .main-layout {
-    flex-direction: column;
-  }
-  .sidebar-nav {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--card-border);
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0.5rem;
-  }
-  .sidebar-header { display: none; }
-  .sidebar-button {
-    white-space: nowrap;
-  }
-  .signout-button-sidebar { display: none; }
-  .content-area {
-    padding: 1rem;
-  }
-  .dashboard-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- NEW: Autocomplete Styles --- */
+/* --- Autocomplete Styles --- */
 .autocomplete-container {
   position: relative;
-  width: 100%; /* Or a specific width */
+  width: 100%;
 }
 
 .suggestions-list {
@@ -400,33 +372,6 @@ button:disabled {
   font-size: 0.9rem;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-  .main-layout {
-    flex-direction: column;
-  }
-  .sidebar-nav {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--card-border);
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0.5rem;
-  }
-  .sidebar-header { display: none; }
-  .sidebar-button {
-    white-space: nowrap;
-  }
-  .signout-button-sidebar { display: none; }
-  .content-area {
-    padding: 1rem;
-  }
-  .dashboard-container {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* --- Blueprint Map Layout --- */
 .blueprint-map {
   display: grid;
@@ -451,7 +396,7 @@ button:disabled {
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  margin-bottom: 0; /* Override default margin */
+  margin-bottom: 0;
 }
 
 .blueprint-map .form-group textarea,
@@ -469,18 +414,6 @@ button:disabled {
   color: var(--primary-color-dark);
 }
 
-/* --- Responsive Adjustments for the map --- */
-@media (max-width: 768px) {
-  .blueprint-map {
-    grid-template-areas:
-      "goal"
-      "skills"
-      "knowledge"
-      "problems"
-      "focus";
-    grid-template-columns: 1fr;
-  }
-}
 /* --- Read More Button Style --- */
 .read-more-button {
   background: none;
@@ -504,34 +437,7 @@ button:disabled {
     border: 1px solid var(--card-border);
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-  .main-layout {
-    flex-direction: column;
-  }
-  .sidebar-nav {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--card-border);
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0.5rem;
-  }
-  .sidebar-header { display: none; }
-  .sidebar-button {
-    white-space: nowrap;
-  }
-  .signout-button-sidebar { display: none; }
-  .content-area {
-    padding: 1rem;
-  }
-  .dashboard-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- NEW: iMessage Journal Styles --- */
+/* --- iMessage Journal Styles --- */
 .imessage-container {
   display: flex;
   flex-direction: column;
@@ -544,7 +450,7 @@ button:disabled {
 
 .journal-bubble-wrapper {
   display: flex;
-  justify-content: flex-end; /* Aligns bubbles to the right */
+  justify-content: flex-end;
 }
 
 .journal-bubble {
@@ -557,7 +463,6 @@ button:disabled {
   word-wrap: break-word;
 }
 
-/* The little "tail" of the message bubble */
 .journal-bubble::after {
   content: '';
   position: absolute;
@@ -598,7 +503,6 @@ button:disabled {
   background: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.5);
 }
-
 
 .journal-bubble .read-more-button {
   color: white;
@@ -734,23 +638,6 @@ button:disabled {
   background-color: #dc2626;
 }
 
-.delete-account-button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.delete-account-button:hover {
-  background-color: #dc2626;
-}
-
 .delete-confirmation {
   text-align: center;
 }
@@ -824,10 +711,4 @@ button:disabled {
 .profile-button:hover {
   background-color: #f1f5f9;
   color: var(--primary-color-dark);
-}
-
-@media (max-width: 768px) {
-  .profile-sidebar {
-    width: 100vw;
-  }
 }
