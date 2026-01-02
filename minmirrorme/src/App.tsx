@@ -6,6 +6,7 @@ import Blueprint from './blueprint';
 import AiCoach from './AiCoach';
 import Inspiration from './Inspiration';
 import AiInsight from './AiInsight';
+import UserProfile from './UserProfile';
 import './App.css';
 import './mobile.css';
 
@@ -17,12 +18,11 @@ type Message = {
 function App() {
   const [activeTab, setActiveTab] = useState('aiCoach');
   const [coachMessages, setCoachMessages] = useState<Message[]>([]);
-  // --- NEW: State for a starter prompt to send to the AI Coach ---
   const [starterPrompt, setStarterPrompt] = useState<string | null>(null);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   // --- NEW: Function to handle the "Update with AI Coach" button click ---
   const handleStartBlueprintUpdate = () => {
-    // Set the starter prompt and switch to the AI Coach tab
     setStarterPrompt("I want to update my blueprint");
     setActiveTab('aiCoach');
   };
@@ -52,9 +52,12 @@ function App() {
               <button className={`sidebar-button ${activeTab === 'blueprint' ? 'active' : ''}`} onClick={() => setActiveTab('blueprint')}>
                 🎯 Core
               </button>
-              <button onClick={signOut} className="signout-button-sidebar">
-                Sign Out
-              </button>
+              
+              <div className="sidebar-bottom">
+                <button className="profile-button" onClick={() => setIsProfileOpen(true)}>
+                  👤 Profile
+                </button>
+              </div>
             </nav>
 
             <main className="content-area">
@@ -75,6 +78,12 @@ function App() {
                 {activeTab === 'aiInsight' && <AiInsight />}
               </div>
             </main>
+            
+            <UserProfile 
+              isOpen={isProfileOpen}
+              onClose={() => setIsProfileOpen(false)}
+              onSignOut={signOut}
+            />
           </div>
         )}
       </Authenticator>

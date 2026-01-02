@@ -33,6 +33,7 @@ function Inspiration() {
   // State to manage inline editing
   const [editingInsight, setEditingInsight] = useState<{ inspirationSK: string; index: number } | null>(null);
   const [editText, setEditText] = useState('');
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   // --- RE-IMPLEMENTED: State for filters ---
   const [titleFilter, setTitleFilter] = useState('');
@@ -71,6 +72,7 @@ function Inspiration() {
       if (autocompleteRef.current && !autocompleteRef.current.contains(event.target as Node)) {
         setTitleSuggestions([]);
       }
+      setOpenDropdown(null);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -179,11 +181,9 @@ function Inspiration() {
     }
   };
 
-  const toggleActionsDropdown = (inspirationSK: string) => {
-    const dropdown = document.getElementById(`actions-dropdown-${inspirationSK}`);
-    if (dropdown) {
-      dropdown.classList.toggle('hidden');
-    }
+  const toggleActionsDropdown = (inspirationSK: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setOpenDropdown(openDropdown === inspirationSK ? null : inspirationSK);
   };
   
   // --- RE-IMPLEMENTED: Autocomplete handlers ---
@@ -249,8 +249,8 @@ function Inspiration() {
               <div className="entry-header">
                 <h4>{item.title} <span className="author-text">by {item.author}</span></h4>
                 <div className="actions-container">
-                  <button onClick={() => toggleActionsDropdown(item.SK)} className="actions-button">•••</button>
-                  <div id={`actions-dropdown-${item.SK}`} className="actions-dropdown hidden">
+                  <button onClick={(e) => toggleActionsDropdown(item.SK, e)} className="actions-button">•••</button>
+                  <div className={`actions-dropdown ${openDropdown === item.SK ? '' : 'hidden'}`}>
                     <div onClick={() => handleFineTune(item)}>Fine-Tune Core Wisdom</div>
                     <div onClick={() => handleDeleteInspiration(item.SK)} className="delete-action">Delete</div>
                   </div>

@@ -23,6 +23,7 @@ function Journal() {
   const [expandedEntrySK, setExpandedEntrySK] = useState<string | null>(null);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const fetchEntries = async (start?: string, end?: string) => {
     setIsFetching(true);
@@ -56,6 +57,12 @@ function Journal() {
     setStartDate(defaultStartDate);
     setEndDate(defaultEndDate);
     fetchEntries(defaultStartDate, defaultEndDate);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = () => setOpenDropdown(null);
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
   const handleSaveJournal = async () => {
@@ -122,9 +129,9 @@ function Journal() {
     }
   };
 
-  const toggleActionsDropdown = (journalSK: string) => {
-    const dropdown = document.getElementById(`journal-actions-${journalSK}`);
-    dropdown?.classList.toggle('hidden');
+  const toggleActionsDropdown = (journalSK: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setOpenDropdown(openDropdown === journalSK ? null : journalSK);
   };
 
   return (
@@ -186,8 +193,8 @@ function Journal() {
                     <div className="journal-bubble-footer">
                       <span>{new Date(entry.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                       <div className="actions-container">
-                        <button onClick={() => toggleActionsDropdown(entry.SK)} className="actions-button-bubble">✏️</button>
-                        <div id={`journal-actions-${entry.SK}`} className="actions-dropdown hidden">
+                        <button onClick={(e) => toggleActionsDropdown(entry.SK, e)} className="actions-button-bubble">✏️</button>
+                        <div className={`actions-dropdown ${openDropdown === entry.SK ? '' : 'hidden'}`}>
                           <div onClick={() => startEditing(entry)}>Edit</div>
                           <div onClick={() => handleDeleteEntry(entry.SK)} className="delete-action">Delete</div>
                         </div>
